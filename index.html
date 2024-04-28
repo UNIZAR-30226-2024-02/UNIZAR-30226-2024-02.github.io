@@ -772,6 +772,20 @@
     }
   }
 };
+            defs["inline_response_200_1"] = {
+  "type" : "object",
+  "properties" : {
+    "nombre" : {
+      "type" : "string"
+    },
+    "apellido" : {
+      "type" : "string"
+    },
+    "email" : {
+      "type" : "string"
+    }
+  }
+};
             defs["inline_response_201"] = {
   "type" : "object",
   "properties" : {
@@ -794,6 +808,20 @@
     }
   }
 };
+            defs["inline_response_201_2"] = {
+  "type" : "object",
+  "properties" : {
+    "id" : {
+      "type" : "string"
+    },
+    "nombre" : {
+      "type" : "string"
+    },
+    "descripcion" : {
+      "type" : "string"
+    }
+  }
+};
             defs["inline_response_400"] = {
   "type" : "object",
   "properties" : {
@@ -803,12 +831,28 @@
     }
   }
 };
+            defs["inline_response_400_1"] = {
+  "type" : "object",
+  "properties" : {
+    "error" : {
+      "type" : "string"
+    }
+  }
+};
             defs["inline_response_401"] = {
   "type" : "object",
   "properties" : {
     "mensaje" : {
       "type" : "string",
       "description" : "Un mensaje que indica que el token no fue proporcionado o es inválido"
+    }
+  }
+};
+            defs["inline_response_401_1"] = {
+  "type" : "object",
+  "properties" : {
+    "mensaje" : {
+      "type" : "string"
     }
   }
 };
@@ -1003,6 +1047,9 @@
                     <li data-group="MisSkins" data-name="misSkinsObtenerAvatarIdGet" class="">
                       <a href="#api-MisSkins-misSkinsObtenerAvatarIdGet">misSkinsObtenerAvatarIdGet</a>
                     </li>
+                    <li data-group="MisSkins" data-name="misSkinsObtenerTerrenoIdGet" class="">
+                      <a href="#api-MisSkins-misSkinsObtenerTerrenoIdGet">misSkinsObtenerTerrenoIdGet</a>
+                    </li>
                   <li class="nav-header" data-group="Partidas"><a href="#api-Partidas">API Methods - Partidas</a></li>
                     <li data-group="Partidas" data-name="nuevaPartidaInvitePut" class="">
                       <a href="#api-Partidas-nuevaPartidaInvitePut">nuevaPartidaInvitePut</a>
@@ -1012,6 +1059,30 @@
                     </li>
                     <li data-group="Partidas" data-name="nuevaPartidaPost" class="">
                       <a href="#api-Partidas-nuevaPartidaPost">nuevaPartidaPost</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaAtacarTerritorioPut" class="">
+                      <a href="#api-Partidas-partidaAtacarTerritorioPut">partidaAtacarTerritorioPut</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaColocarTropasPut" class="">
+                      <a href="#api-Partidas-partidaColocarTropasPut">partidaColocarTropasPut</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaIniciarPartidaPut" class="">
+                      <a href="#api-Partidas-partidaIniciarPartidaPut">partidaIniciarPartidaPut</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaObtenerPartidaPut" class="">
+                      <a href="#api-Partidas-partidaObtenerPartidaPut">partidaObtenerPartidaPut</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaRealizarManiobraPut" class="">
+                      <a href="#api-Partidas-partidaRealizarManiobraPut">partidaRealizarManiobraPut</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaSalirPartidaPut" class="">
+                      <a href="#api-Partidas-partidaSalirPartidaPut">partidaSalirPartidaPut</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaSiguienteFasePut" class="">
+                      <a href="#api-Partidas-partidaSiguienteFasePut">partidaSiguienteFasePut</a>
+                    </li>
+                    <li data-group="Partidas" data-name="partidaUtilizarCartasPut" class="">
+                      <a href="#api-Partidas-partidaUtilizarCartasPut">partidaUtilizarCartasPut</a>
                     </li>
                     <li data-group="Partidas" data-name="partidasGet" class="">
                       <a href="#api-Partidas-partidasGet">partidasGet</a>
@@ -1024,6 +1095,10 @@
                     </li>
                     <li data-group="Partidas" data-name="partidasPartidaIdGet" class="">
                       <a href="#api-Partidas-partidasPartidaIdGet">partidasPartidaIdGet</a>
+                    </li>
+                  <li class="nav-header" data-group="Perfil"><a href="#api-Perfil">API Methods - Perfil</a></li>
+                    <li data-group="Perfil" data-name="perfilGet" class="">
+                      <a href="#api-Perfil-perfilGet">perfilGet</a>
                     </li>
                   <li class="nav-header" data-group="Ranking"><a href="#api-Ranking">API Methods - Ranking</a></li>
                     <li data-group="Ranking" data-name="rankingGet" class="">
@@ -6096,6 +6171,433 @@ except ApiException as e:
                         </article>
                       </div>
                       <hr>
+                    <div id="api-MisSkins-misSkinsObtenerTerrenoIdGet">
+                      <article id="api-MisSkins-misSkinsObtenerTerrenoIdGet-0" data-group="User" data-name="misSkinsObtenerTerrenoIdGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>misSkinsObtenerTerrenoIdGet</h1>
+                          <p>Obtiene el terreno del usuario</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/misSkins/obtenerTerreno/{id}</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/misSkins/obtenerTerreno/{id}"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.MisSkinsApi;
+
+import java.io.File;
+import java.util.*;
+
+public class MisSkinsApiExample {
+
+    public static void main(String[] args) {
+        
+        MisSkinsApi apiInstance = new MisSkinsApi();
+        String authorization = authorization_example; // String | 
+        String id = id_example; // String | 
+        try {
+            inline_response_201_2 result = apiInstance.misSkinsObtenerTerrenoIdGet(authorization, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MisSkinsApi#misSkinsObtenerTerrenoIdGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.MisSkinsApi;
+
+public class MisSkinsApiExample {
+
+    public static void main(String[] args) {
+        MisSkinsApi apiInstance = new MisSkinsApi();
+        String authorization = authorization_example; // String | 
+        String id = id_example; // String | 
+        try {
+            inline_response_201_2 result = apiInstance.misSkinsObtenerTerrenoIdGet(authorization, id);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling MisSkinsApi#misSkinsObtenerTerrenoIdGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *authorization = authorization_example; // 
+String *id = id_example; // 
+
+MisSkinsApi *apiInstance = [[MisSkinsApi alloc] init];
+
+// Obtiene el terreno del usuario
+[apiInstance misSkinsObtenerTerrenoIdGetWith:authorization
+    id:id
+              completionHandler: ^(inline_response_201_2 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.MisSkinsApi()
+var authorization = authorization_example; // {{String}} 
+var id = id_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.misSkinsObtenerTerrenoIdGet(authorization, id, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class misSkinsObtenerTerrenoIdGetExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new MisSkinsApi();
+            var authorization = authorization_example;  // String | 
+            var id = id_example;  // String | 
+
+            try
+            {
+                // Obtiene el terreno del usuario
+                inline_response_201_2 result = apiInstance.misSkinsObtenerTerrenoIdGet(authorization, id);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling MisSkinsApi.misSkinsObtenerTerrenoIdGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiMisSkinsApi();
+$authorization = authorization_example; // String | 
+$id = id_example; // String | 
+
+try {
+    $result = $api_instance->misSkinsObtenerTerrenoIdGet($authorization, $id);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling MisSkinsApi->misSkinsObtenerTerrenoIdGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::MisSkinsApi;
+
+my $api_instance = WWW::SwaggerClient::MisSkinsApi->new();
+my $authorization = authorization_example; # String | 
+my $id = id_example; # String | 
+
+eval { 
+    my $result = $api_instance->misSkinsObtenerTerrenoIdGet(authorization => $authorization, id => $id);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling MisSkinsApi->misSkinsObtenerTerrenoIdGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-MisSkins-misSkinsObtenerTerrenoIdGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.MisSkinsApi()
+authorization = authorization_example # String | 
+id = id_example # String | 
+
+try: 
+    # Obtiene el terreno del usuario
+    api_response = api_instance.mis_skins_obtener_terreno_id_get(authorization, id)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling MisSkinsApi->misSkinsObtenerTerrenoIdGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+                            <div class="methodsubtabletitle">Path parameters</div>
+                            <table id="methodsubtable">
+                                <tr>
+                                  <th width="150px">Name</th>
+                                  <th>Description</th>
+                                </tr>
+                                  <tr><td style="width:150px;">id*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_misSkinsObtenerTerrenoIdGet_id">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      String
+                                                  </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+                            <div class="methodsubtabletitle">Header parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                  <tr><td style="width:150px;">authorization*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_misSkinsObtenerTerrenoIdGet_authorization">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      String
+                                                  </span>
+                                                      <span class="format">
+                                                          (JWT)
+                                                      </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 201 - Terreno obtenido con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-misSkinsObtenerTerrenoIdGet-201-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-misSkinsObtenerTerrenoIdGet-201-schema">
+                                  <div id='responses-misSkinsObtenerTerrenoIdGet-201-schema-201' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Terreno obtenido con éxito",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_201_2"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-misSkinsObtenerTerrenoIdGet-201-schema-data').val(stringify(schema));
+                                        var result = $('#responses-misSkinsObtenerTerrenoIdGet-201-schema-201');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-misSkinsObtenerTerrenoIdGet-201-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - Error al obtener el terreno </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-misSkinsObtenerTerrenoIdGet-400-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-misSkinsObtenerTerrenoIdGet-400-schema">
+                                  <div id='responses-misSkinsObtenerTerrenoIdGet-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Error al obtener el terreno",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_400_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-misSkinsObtenerTerrenoIdGet-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-misSkinsObtenerTerrenoIdGet-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-misSkinsObtenerTerrenoIdGet-400-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - Token no proporcionado o inválido </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-misSkinsObtenerTerrenoIdGet-401-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-misSkinsObtenerTerrenoIdGet-401-schema">
+                                  <div id='responses-misSkinsObtenerTerrenoIdGet-401-schema-401' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Token no proporcionado o inválido",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_401_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-misSkinsObtenerTerrenoIdGet-401-schema-data').val(stringify(schema));
+                                        var result = $('#responses-misSkinsObtenerTerrenoIdGet-401-schema-401');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-misSkinsObtenerTerrenoIdGet-401-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
                   </section>
                 <section id="api-Partidas">
                   <h1>Partidas</h1>
@@ -7058,6 +7560,2322 @@ except ApiException as e:
                             </div>
 
                             <h3> Status: 500 - Error al crear partida </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaAtacarTerritorioPut">
+                      <article id="api-Partidas-partidaAtacarTerritorioPut-0" data-group="User" data-name="partidaAtacarTerritorioPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaAtacarTerritorioPut</h1>
+                          <p>Ataca un territorio desde otro</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/atacarTerritorio</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaAtacarTerritorioPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaAtacarTerritorioPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/atacarTerritorio?idPartida=&territorioAtacante=&territorioDefensor=&numTropas="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String territorioAtacante = territorioAtacante_example; // String | 
+        String territorioDefensor = territorioDefensor_example; // String | 
+        Integer numTropas = 56; // Integer | 
+        try {
+            apiInstance.partidaAtacarTerritorioPut(idPartida, territorioAtacante, territorioDefensor, numTropas);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaAtacarTerritorioPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String territorioAtacante = territorioAtacante_example; // String | 
+        String territorioDefensor = territorioDefensor_example; // String | 
+        Integer numTropas = 56; // Integer | 
+        try {
+            apiInstance.partidaAtacarTerritorioPut(idPartida, territorioAtacante, territorioDefensor, numTropas);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaAtacarTerritorioPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+String *territorioAtacante = territorioAtacante_example; // 
+String *territorioDefensor = territorioDefensor_example; // 
+Integer *numTropas = 56; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Ataca un territorio desde otro
+[apiInstance partidaAtacarTerritorioPutWith:idPartida
+    territorioAtacante:territorioAtacante
+    territorioDefensor:territorioDefensor
+    numTropas:numTropas
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+var territorioAtacante = territorioAtacante_example; // {{String}} 
+var territorioDefensor = territorioDefensor_example; // {{String}} 
+var numTropas = 56; // {{Integer}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaAtacarTerritorioPut(idPartida, territorioAtacante, territorioDefensor, numTropas, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaAtacarTerritorioPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+            var territorioAtacante = territorioAtacante_example;  // String | 
+            var territorioDefensor = territorioDefensor_example;  // String | 
+            var numTropas = 56;  // Integer | 
+
+            try
+            {
+                // Ataca un territorio desde otro
+                apiInstance.partidaAtacarTerritorioPut(idPartida, territorioAtacante, territorioDefensor, numTropas);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaAtacarTerritorioPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+$territorioAtacante = territorioAtacante_example; // String | 
+$territorioDefensor = territorioDefensor_example; // String | 
+$numTropas = 56; // Integer | 
+
+try {
+    $api_instance->partidaAtacarTerritorioPut($idPartida, $territorioAtacante, $territorioDefensor, $numTropas);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaAtacarTerritorioPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+my $territorioAtacante = territorioAtacante_example; # String | 
+my $territorioDefensor = territorioDefensor_example; # String | 
+my $numTropas = 56; # Integer | 
+
+eval { 
+    $api_instance->partidaAtacarTerritorioPut(idPartida => $idPartida, territorioAtacante => $territorioAtacante, territorioDefensor => $territorioDefensor, numTropas => $numTropas);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaAtacarTerritorioPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaAtacarTerritorioPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+territorioAtacante = territorioAtacante_example # String | 
+territorioDefensor = territorioDefensor_example # String | 
+numTropas = 56 # Integer | 
+
+try: 
+    # Ataca un territorio desde otro
+    api_instance.partida_atacar_territorio_put(idPartida, territorioAtacante, territorioDefensor, numTropas)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaAtacarTerritorioPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaAtacarTerritorioPut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">territorioAtacante*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaAtacarTerritorioPut_territorioAtacante">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">territorioDefensor*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaAtacarTerritorioPut_territorioDefensor">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">numTropas*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaAtacarTerritorioPut_numTropas">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Ataque realizado con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Error al realizar ataque </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaColocarTropasPut">
+                      <article id="api-Partidas-partidaColocarTropasPut-0" data-group="User" data-name="partidaColocarTropasPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaColocarTropasPut</h1>
+                          <p>Coloca tropas en un territorio</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/colocarTropas</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaColocarTropasPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaColocarTropasPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaColocarTropasPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/colocarTropas?idPartida=&territorio=&numTropas="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String territorio = territorio_example; // String | 
+        Integer numTropas = 56; // Integer | 
+        try {
+            apiInstance.partidaColocarTropasPut(idPartida, territorio, numTropas);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaColocarTropasPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String territorio = territorio_example; // String | 
+        Integer numTropas = 56; // Integer | 
+        try {
+            apiInstance.partidaColocarTropasPut(idPartida, territorio, numTropas);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaColocarTropasPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+String *territorio = territorio_example; // 
+Integer *numTropas = 56; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Coloca tropas en un territorio
+[apiInstance partidaColocarTropasPutWith:idPartida
+    territorio:territorio
+    numTropas:numTropas
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+var territorio = territorio_example; // {{String}} 
+var numTropas = 56; // {{Integer}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaColocarTropasPut(idPartida, territorio, numTropas, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaColocarTropasPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+            var territorio = territorio_example;  // String | 
+            var numTropas = 56;  // Integer | 
+
+            try
+            {
+                // Coloca tropas en un territorio
+                apiInstance.partidaColocarTropasPut(idPartida, territorio, numTropas);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaColocarTropasPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+$territorio = territorio_example; // String | 
+$numTropas = 56; // Integer | 
+
+try {
+    $api_instance->partidaColocarTropasPut($idPartida, $territorio, $numTropas);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaColocarTropasPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+my $territorio = territorio_example; # String | 
+my $numTropas = 56; # Integer | 
+
+eval { 
+    $api_instance->partidaColocarTropasPut(idPartida => $idPartida, territorio => $territorio, numTropas => $numTropas);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaColocarTropasPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaColocarTropasPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+territorio = territorio_example # String | 
+numTropas = 56 # Integer | 
+
+try: 
+    # Coloca tropas en un territorio
+    api_instance.partida_colocar_tropas_put(idPartida, territorio, numTropas)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaColocarTropasPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaColocarTropasPut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">territorio*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaColocarTropasPut_territorio">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">numTropas*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaColocarTropasPut_numTropas">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Tropas colocadas con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Error al colocar tropas </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaIniciarPartidaPut">
+                      <article id="api-Partidas-partidaIniciarPartidaPut-0" data-group="User" data-name="partidaIniciarPartidaPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaIniciarPartidaPut</h1>
+                          <p>Inicia una partida específica</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/iniciarPartida</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaIniciarPartidaPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaIniciarPartidaPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaIniciarPartidaPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/iniciarPartida?idPartida="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaIniciarPartidaPut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaIniciarPartidaPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaIniciarPartidaPut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaIniciarPartidaPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Inicia una partida específica
+[apiInstance partidaIniciarPartidaPutWith:idPartida
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaIniciarPartidaPut(idPartida, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaIniciarPartidaPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+
+            try
+            {
+                // Inicia una partida específica
+                apiInstance.partidaIniciarPartidaPut(idPartida);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaIniciarPartidaPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+
+try {
+    $api_instance->partidaIniciarPartidaPut($idPartida);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaIniciarPartidaPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+
+eval { 
+    $api_instance->partidaIniciarPartidaPut(idPartida => $idPartida);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaIniciarPartidaPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaIniciarPartidaPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+
+try: 
+    # Inicia una partida específica
+    api_instance.partida_iniciar_partida_put(idPartida)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaIniciarPartidaPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaIniciarPartidaPut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Partida iniciada con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Error al iniciar partida </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaObtenerPartidaPut">
+                      <article id="api-Partidas-partidaObtenerPartidaPut-0" data-group="User" data-name="partidaObtenerPartidaPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaObtenerPartidaPut</h1>
+                          <p>Obtiene una partida específica</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/obtenerPartida</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaObtenerPartidaPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaObtenerPartidaPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaObtenerPartidaPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/obtenerPartida?idPartida="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaObtenerPartidaPut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaObtenerPartidaPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaObtenerPartidaPut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaObtenerPartidaPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Obtiene una partida específica
+[apiInstance partidaObtenerPartidaPutWith:idPartida
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaObtenerPartidaPut(idPartida, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaObtenerPartidaPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+
+            try
+            {
+                // Obtiene una partida específica
+                apiInstance.partidaObtenerPartidaPut(idPartida);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaObtenerPartidaPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+
+try {
+    $api_instance->partidaObtenerPartidaPut($idPartida);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaObtenerPartidaPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+
+eval { 
+    $api_instance->partidaObtenerPartidaPut(idPartida => $idPartida);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaObtenerPartidaPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaObtenerPartidaPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+
+try: 
+    # Obtiene una partida específica
+    api_instance.partida_obtener_partida_put(idPartida)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaObtenerPartidaPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaObtenerPartidaPut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Partida obtenida con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 400 - Error al encontrar partida </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaRealizarManiobraPut">
+                      <article id="api-Partidas-partidaRealizarManiobraPut-0" data-group="User" data-name="partidaRealizarManiobraPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaRealizarManiobraPut</h1>
+                          <p>Realiza una maniobra de tropas</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/realizarManiobra</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaRealizarManiobraPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaRealizarManiobraPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaRealizarManiobraPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/realizarManiobra?idPartida=&territorioOrigen=&territorioDestino=&numTropas="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String territorioOrigen = territorioOrigen_example; // String | 
+        String territorioDestino = territorioDestino_example; // String | 
+        Integer numTropas = 56; // Integer | 
+        try {
+            apiInstance.partidaRealizarManiobraPut(idPartida, territorioOrigen, territorioDestino, numTropas);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaRealizarManiobraPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String territorioOrigen = territorioOrigen_example; // String | 
+        String territorioDestino = territorioDestino_example; // String | 
+        Integer numTropas = 56; // Integer | 
+        try {
+            apiInstance.partidaRealizarManiobraPut(idPartida, territorioOrigen, territorioDestino, numTropas);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaRealizarManiobraPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+String *territorioOrigen = territorioOrigen_example; // 
+String *territorioDestino = territorioDestino_example; // 
+Integer *numTropas = 56; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Realiza una maniobra de tropas
+[apiInstance partidaRealizarManiobraPutWith:idPartida
+    territorioOrigen:territorioOrigen
+    territorioDestino:territorioDestino
+    numTropas:numTropas
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+var territorioOrigen = territorioOrigen_example; // {{String}} 
+var territorioDestino = territorioDestino_example; // {{String}} 
+var numTropas = 56; // {{Integer}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaRealizarManiobraPut(idPartida, territorioOrigen, territorioDestino, numTropas, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaRealizarManiobraPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+            var territorioOrigen = territorioOrigen_example;  // String | 
+            var territorioDestino = territorioDestino_example;  // String | 
+            var numTropas = 56;  // Integer | 
+
+            try
+            {
+                // Realiza una maniobra de tropas
+                apiInstance.partidaRealizarManiobraPut(idPartida, territorioOrigen, territorioDestino, numTropas);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaRealizarManiobraPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+$territorioOrigen = territorioOrigen_example; // String | 
+$territorioDestino = territorioDestino_example; // String | 
+$numTropas = 56; // Integer | 
+
+try {
+    $api_instance->partidaRealizarManiobraPut($idPartida, $territorioOrigen, $territorioDestino, $numTropas);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaRealizarManiobraPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+my $territorioOrigen = territorioOrigen_example; # String | 
+my $territorioDestino = territorioDestino_example; # String | 
+my $numTropas = 56; # Integer | 
+
+eval { 
+    $api_instance->partidaRealizarManiobraPut(idPartida => $idPartida, territorioOrigen => $territorioOrigen, territorioDestino => $territorioDestino, numTropas => $numTropas);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaRealizarManiobraPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaRealizarManiobraPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+territorioOrigen = territorioOrigen_example # String | 
+territorioDestino = territorioDestino_example # String | 
+numTropas = 56 # Integer | 
+
+try: 
+    # Realiza una maniobra de tropas
+    api_instance.partida_realizar_maniobra_put(idPartida, territorioOrigen, territorioDestino, numTropas)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaRealizarManiobraPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaRealizarManiobraPut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">territorioOrigen*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaRealizarManiobraPut_territorioOrigen">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">territorioDestino*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaRealizarManiobraPut_territorioDestino">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">numTropas*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaRealizarManiobraPut_numTropas">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    Integer
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Maniobra realizada con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Error al realizar maniobra </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaSalirPartidaPut">
+                      <article id="api-Partidas-partidaSalirPartidaPut-0" data-group="User" data-name="partidaSalirPartidaPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaSalirPartidaPut</h1>
+                          <p>Sale de una partida</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/salirPartida</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaSalirPartidaPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSalirPartidaPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaSalirPartidaPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/salirPartida?idPartida="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaSalirPartidaPut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaSalirPartidaPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaSalirPartidaPut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaSalirPartidaPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Sale de una partida
+[apiInstance partidaSalirPartidaPutWith:idPartida
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaSalirPartidaPut(idPartida, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaSalirPartidaPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+
+            try
+            {
+                // Sale de una partida
+                apiInstance.partidaSalirPartidaPut(idPartida);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaSalirPartidaPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+
+try {
+    $api_instance->partidaSalirPartidaPut($idPartida);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaSalirPartidaPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+
+eval { 
+    $api_instance->partidaSalirPartidaPut(idPartida => $idPartida);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaSalirPartidaPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSalirPartidaPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+
+try: 
+    # Sale de una partida
+    api_instance.partida_salir_partida_put(idPartida)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaSalirPartidaPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaSalirPartidaPut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Salida de partida exitosa </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Error al salir de la partida </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaSiguienteFasePut">
+                      <article id="api-Partidas-partidaSiguienteFasePut-0" data-group="User" data-name="partidaSiguienteFasePut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaSiguienteFasePut</h1>
+                          <p>Avanza a la siguiente fase de una partida</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/siguienteFase</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaSiguienteFasePut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaSiguienteFasePut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaSiguienteFasePut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/siguienteFase?idPartida="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaSiguienteFasePut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaSiguienteFasePut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        try {
+            apiInstance.partidaSiguienteFasePut(idPartida);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaSiguienteFasePut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Avanza a la siguiente fase de una partida
+[apiInstance partidaSiguienteFasePutWith:idPartida
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaSiguienteFasePut(idPartida, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaSiguienteFasePutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+
+            try
+            {
+                // Avanza a la siguiente fase de una partida
+                apiInstance.partidaSiguienteFasePut(idPartida);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaSiguienteFasePut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+
+try {
+    $api_instance->partidaSiguienteFasePut($idPartida);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaSiguienteFasePut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+
+eval { 
+    $api_instance->partidaSiguienteFasePut(idPartida => $idPartida);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaSiguienteFasePut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaSiguienteFasePut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+
+try: 
+    # Avanza a la siguiente fase de una partida
+    api_instance.partida_siguiente_fase_put(idPartida)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaSiguienteFasePut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaSiguienteFasePut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Cambio de fase con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Error al cambiar de fase </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                    <div id="api-Partidas-partidaUtilizarCartasPut">
+                      <article id="api-Partidas-partidaUtilizarCartasPut-0" data-group="User" data-name="partidaUtilizarCartasPut" data-version="0">
+                        <div class="pull-left">
+                          <h1>partidaUtilizarCartasPut</h1>
+                          <p>Utiliza cartas en una partida</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="put"><code><span class="pln">/partida/utilizarCartas</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Partidas-partidaUtilizarCartasPut-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Partidas-partidaUtilizarCartasPut-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Partidas-partidaUtilizarCartasPut-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X PUT\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/partida/utilizarCartas?idPartida=&carta1=&carta2=&carta3="</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PartidasApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String carta1 = carta1_example; // String | 
+        String carta2 = carta2_example; // String | 
+        String carta3 = carta3_example; // String | 
+        try {
+            apiInstance.partidaUtilizarCartasPut(idPartida, carta1, carta2, carta3);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaUtilizarCartasPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PartidasApi;
+
+public class PartidasApiExample {
+
+    public static void main(String[] args) {
+        PartidasApi apiInstance = new PartidasApi();
+        String idPartida = idPartida_example; // String | 
+        String carta1 = carta1_example; // String | 
+        String carta2 = carta2_example; // String | 
+        String carta3 = carta3_example; // String | 
+        try {
+            apiInstance.partidaUtilizarCartasPut(idPartida, carta1, carta2, carta3);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PartidasApi#partidaUtilizarCartasPut");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *idPartida = idPartida_example; // 
+String *carta1 = carta1_example; // 
+String *carta2 = carta2_example; // 
+String *carta3 = carta3_example; // 
+
+PartidasApi *apiInstance = [[PartidasApi alloc] init];
+
+// Utiliza cartas en una partida
+[apiInstance partidaUtilizarCartasPutWith:idPartida
+    carta1:carta1
+    carta2:carta2
+    carta3:carta3
+              completionHandler: ^(NSError* error) {
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PartidasApi()
+var idPartida = idPartida_example; // {{String}} 
+var carta1 = carta1_example; // {{String}} 
+var carta2 = carta2_example; // {{String}} 
+var carta3 = carta3_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully.');
+  }
+};
+api.partidaUtilizarCartasPut(idPartida, carta1, carta2, carta3, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class partidaUtilizarCartasPutExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PartidasApi();
+            var idPartida = idPartida_example;  // String | 
+            var carta1 = carta1_example;  // String | 
+            var carta2 = carta2_example;  // String | 
+            var carta3 = carta3_example;  // String | 
+
+            try
+            {
+                // Utiliza cartas en una partida
+                apiInstance.partidaUtilizarCartasPut(idPartida, carta1, carta2, carta3);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PartidasApi.partidaUtilizarCartasPut: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPartidasApi();
+$idPartida = idPartida_example; // String | 
+$carta1 = carta1_example; // String | 
+$carta2 = carta2_example; // String | 
+$carta3 = carta3_example; // String | 
+
+try {
+    $api_instance->partidaUtilizarCartasPut($idPartida, $carta1, $carta2, $carta3);
+} catch (Exception $e) {
+    echo 'Exception when calling PartidasApi->partidaUtilizarCartasPut: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PartidasApi;
+
+my $api_instance = WWW::SwaggerClient::PartidasApi->new();
+my $idPartida = idPartida_example; # String | 
+my $carta1 = carta1_example; # String | 
+my $carta2 = carta2_example; # String | 
+my $carta3 = carta3_example; # String | 
+
+eval { 
+    $api_instance->partidaUtilizarCartasPut(idPartida => $idPartida, carta1 => $carta1, carta2 => $carta2, carta3 => $carta3);
+};
+if ($@) {
+    warn "Exception when calling PartidasApi->partidaUtilizarCartasPut: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Partidas-partidaUtilizarCartasPut-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PartidasApi()
+idPartida = idPartida_example # String | 
+carta1 = carta1_example # String | 
+carta2 = carta2_example # String | 
+carta3 = carta3_example # String | 
+
+try: 
+    # Utiliza cartas en una partida
+    api_instance.partida_utilizar_cartas_put(idPartida, carta1, carta2, carta3)
+except ApiException as e:
+    print("Exception when calling PartidasApi->partidaUtilizarCartasPut: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+
+
+
+                            <div class="methodsubtabletitle">Query parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                <tr><td style="width:150px;">idPartida*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaUtilizarCartasPut_idPartida">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">carta1*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaUtilizarCartasPut_carta1">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">carta2*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaUtilizarCartasPut_carta2">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                                <tr><td style="width:150px;">carta3*</td>
+                                <td>
+                                
+                                
+                                    <div id="d2e199_partidaUtilizarCartasPut_carta3">
+                                        <div class="json-schema-view">
+                                            <div class="primitive">
+                                                <span class="type">
+                                                    String
+                                                </span>
+                                
+                                            </div>
+                                                <div class="inner required">
+                                                    Required
+                                                </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                </tr>
+                            </table>
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Cartas utilizadas con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                            <h3> Status: 500 - Error al utilizar cartas </h3>
 
                             <ul class="nav nav-tabs nav-tabs-examples" >
                             </ul>
@@ -8157,6 +10975,401 @@ except ApiException as e:
                             </ul>
 
                             <div class="tab-content" style='margin-bottom: 10px;'>
+                            </div>
+
+                        </article>
+                      </div>
+                      <hr>
+                  </section>
+                <section id="api-Perfil">
+                  <h1>Perfil</h1>
+                    <div id="api-Perfil-perfilGet">
+                      <article id="api-Perfil-perfilGet-0" data-group="User" data-name="perfilGet" data-version="0">
+                        <div class="pull-left">
+                          <h1>perfilGet</h1>
+                          <p>Obtiene el perfil del usuario</p>
+                        </div>
+                        <div class="pull-right"></div>
+                        <div class="clearfix"></div>
+                        <p></p>
+                        <p class="marked"></p>
+                        <p></p>
+                        <br />
+                        <pre class="prettyprint language-html prettyprinted" data-type="get"><code><span class="pln">/perfil</span></code></pre>
+                        <p>
+                          <h3>Usage and SDK Samples</h3>
+                        </p>
+                        <ul class="nav nav-tabs nav-tabs-examples">
+                          <li class="active"><a href="#examples-Perfil-perfilGet-0-curl">Curl</a></li>
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-java">Java</a></li>
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-android">Android</a></li>
+                          <!--<li class=""><a href="#examples-Perfil-perfilGet-0-groovy">Groovy</a></li>-->
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-objc">Obj-C</a></li>
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-javascript">JavaScript</a></li>
+                          <!--<li class=""><a href="#examples-Perfil-perfilGet-0-angular">Angular</a></li>-->
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-csharp">C#</a></li>
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-php">PHP</a></li>
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-perl">Perl</a></li>
+                          <li class=""><a href="#examples-Perfil-perfilGet-0-python">Python</a></li>
+                        </ul>
+
+                        <div class="tab-content">
+                          <div class="tab-pane active" id="examples-Perfil-perfilGet-0-curl">
+                           <pre class="prettyprint"><code class="language-bsh">curl -X GET\
+-H "Accept: application/json"\
+"https://virtserver.swaggerhub.com/UZ-30226-2024-02/Proyecto_Software2324/1.0.0/perfil"</code></pre>
+                          </div>
+                          <div class="tab-pane" id="examples-Perfil-perfilGet-0-java">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.*;
+import io.swagger.client.auth.*;
+import io.swagger.client.model.*;
+import io.swagger.client.api.PerfilApi;
+
+import java.io.File;
+import java.util.*;
+
+public class PerfilApiExample {
+
+    public static void main(String[] args) {
+        
+        PerfilApi apiInstance = new PerfilApi();
+        String authorization = authorization_example; // String | 
+        try {
+            inline_response_200_1 result = apiInstance.perfilGet(authorization);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PerfilApi#perfilGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+
+                          <div class="tab-pane" id="examples-Perfil-perfilGet-0-android">
+                            <pre class="prettyprint"><code class="language-java">import io.swagger.client.api.PerfilApi;
+
+public class PerfilApiExample {
+
+    public static void main(String[] args) {
+        PerfilApi apiInstance = new PerfilApi();
+        String authorization = authorization_example; // String | 
+        try {
+            inline_response_200_1 result = apiInstance.perfilGet(authorization);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling PerfilApi#perfilGet");
+            e.printStackTrace();
+        }
+    }
+}</code></pre>
+                          </div>
+  <!--
+  <div class="tab-pane" id="examples-Perfil-perfilGet-0-groovy">
+  <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+  </div> -->
+                            <div class="tab-pane" id="examples-Perfil-perfilGet-0-objc">
+                              <pre class="prettyprint"><code class="language-cpp">String *authorization = authorization_example; // 
+
+PerfilApi *apiInstance = [[PerfilApi alloc] init];
+
+// Obtiene el perfil del usuario
+[apiInstance perfilGetWith:authorization
+              completionHandler: ^(inline_response_200_1 output, NSError* error) {
+                            if (output) {
+                                NSLog(@"%@", output);
+                            }
+                            if (error) {
+                                NSLog(@"Error: %@", error);
+                            }
+                        }];
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Perfil-perfilGet-0-javascript">
+                              <pre class="prettyprint"><code class="language-js">var ApiRestDelBackEnd = require('api_rest_del_back_end');
+
+var api = new ApiRestDelBackEnd.PerfilApi()
+var authorization = authorization_example; // {{String}} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.perfilGet(authorization, callback);
+</code></pre>
+                            </div>
+
+                            <!--<div class="tab-pane" id="examples-Perfil-perfilGet-0-angular">
+              <pre class="prettyprint language-json prettyprinted" data-type="json"><code>Coming Soon!</code></pre>
+            </div>-->
+                            <div class="tab-pane" id="examples-Perfil-perfilGet-0-csharp">
+                              <pre class="prettyprint"><code class="language-cs">using System;
+using System.Diagnostics;
+using IO.Swagger.Api;
+using IO.Swagger.Client;
+using IO.Swagger.Model;
+
+namespace Example
+{
+    public class perfilGetExample
+    {
+        public void main()
+        {
+
+            var apiInstance = new PerfilApi();
+            var authorization = authorization_example;  // String | 
+
+            try
+            {
+                // Obtiene el perfil del usuario
+                inline_response_200_1 result = apiInstance.perfilGet(authorization);
+                Debug.WriteLine(result);
+            }
+            catch (Exception e)
+            {
+                Debug.Print("Exception when calling PerfilApi.perfilGet: " + e.Message );
+            }
+        }
+    }
+}
+</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Perfil-perfilGet-0-php">
+                              <pre class="prettyprint"><code class="language-php"><&#63;php
+require_once(__DIR__ . '/vendor/autoload.php');
+
+$api_instance = new Swagger\Client\ApiPerfilApi();
+$authorization = authorization_example; // String | 
+
+try {
+    $result = $api_instance->perfilGet($authorization);
+    print_r($result);
+} catch (Exception $e) {
+    echo 'Exception when calling PerfilApi->perfilGet: ', $e->getMessage(), PHP_EOL;
+}
+?></code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Perfil-perfilGet-0-perl">
+                              <pre class="prettyprint"><code class="language-perl">use Data::Dumper;
+use WWW::SwaggerClient::Configuration;
+use WWW::SwaggerClient::PerfilApi;
+
+my $api_instance = WWW::SwaggerClient::PerfilApi->new();
+my $authorization = authorization_example; # String | 
+
+eval { 
+    my $result = $api_instance->perfilGet(authorization => $authorization);
+    print Dumper($result);
+};
+if ($@) {
+    warn "Exception when calling PerfilApi->perfilGet: $@\n";
+}</code></pre>
+                            </div>
+
+                            <div class="tab-pane" id="examples-Perfil-perfilGet-0-python">
+                              <pre class="prettyprint"><code class="language-python">from __future__ import print_statement
+import time
+import swagger_client
+from swagger_client.rest import ApiException
+from pprint import pprint
+
+# create an instance of the API class
+api_instance = swagger_client.PerfilApi()
+authorization = authorization_example # String | 
+
+try: 
+    # Obtiene el perfil del usuario
+    api_response = api_instance.perfil_get(authorization)
+    pprint(api_response)
+except ApiException as e:
+    print("Exception when calling PerfilApi->perfilGet: %s\n" % e)</code></pre>
+                            </div>
+                          </div>
+
+                          <h2>Parameters</h2>
+
+
+                            <div class="methodsubtabletitle">Header parameters</div>
+                            <table id="methodsubtable">
+                              <tr>
+                                <th width="150px">Name</th>
+                                <th>Description</th>
+                              </tr>
+                                  <tr><td style="width:150px;">authorization*</td>
+                                  <td>
+                                  
+                                  
+                                      <div id="d2e199_perfilGet_authorization">
+                                          <div class="json-schema-view">
+                                              <div class="primitive">
+                                                  <span class="type">
+                                                      String
+                                                  </span>
+                                                      <span class="format">
+                                                          (JWT)
+                                                      </span>
+                                  
+                                              </div>
+                                                  <div class="inner required">
+                                                      Required
+                                                  </div>
+                                          </div>
+                                      </div>
+                                  </td>
+                                  </tr>
+                            </table>
+
+
+
+
+                          <h2>Responses</h2>
+                            <h3> Status: 200 - Perfil obtenido con éxito </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-perfilGet-200-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-perfilGet-200-schema">
+                                  <div id='responses-perfilGet-200-schema-200' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Perfil obtenido con éxito",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_200_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-perfilGet-200-schema-data').val(stringify(schema));
+                                        var result = $('#responses-perfilGet-200-schema-200');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-perfilGet-200-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 400 - Error al obtener el perfil </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-perfilGet-400-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-perfilGet-400-schema">
+                                  <div id='responses-perfilGet-400-schema-400' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Error al obtener el perfil",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_400_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-perfilGet-400-schema-data').val(stringify(schema));
+                                        var result = $('#responses-perfilGet-400-schema-400');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-perfilGet-400-schema-data' type='hidden' value=''></input>
+                                </div>
+                            </div>
+
+                            <h3> Status: 401 - Token no proporcionado o inválido </h3>
+
+                            <ul class="nav nav-tabs nav-tabs-examples" >
+                                <li class="active">
+                                  <a data-toggle="tab" href="#responses-perfilGet-401-schema">Schema</a>
+                                </li>
+
+                            </ul>
+
+                            <div class="tab-content" style='margin-bottom: 10px;'>
+                                <div class="tab-pane active" id="responses-perfilGet-401-schema">
+                                  <div id='responses-perfilGet-401-schema-401' style="padding: 30px; border-left: 1px solid #eee; border-right: 1px solid #eee; border-bottom: 1px solid #eee;">
+                                    <script>
+                                      $(document).ready(function() {
+                                        var schemaWrapper = {
+  "description" : "Token no proporcionado o inválido",
+  "content" : {
+    "application/json" : {
+      "schema" : {
+        "$ref" : "#/components/schemas/inline_response_401_1"
+      }
+    }
+  }
+};
+                                        var schema = schemaWrapper.content["application/json"].schema;
+                                        if (schema.$ref != null) {
+                                          schema = defsParser.$refs.get(schema.$ref);
+                                        } else {
+                                          schemaWrapper.components = {};
+                                          schemaWrapper.components.schemas = Object.assign({}, defs);
+                                          $RefParser.dereference(schemaWrapper).catch(function(err) {
+                                            console.log(err);
+                                          });
+                                        }
+
+                                        //console.log(JSON.stringify(schema));
+                                        var view = new JSONSchemaView(schema, 3);
+                                        $('#responses-perfilGet-401-schema-data').val(stringify(schema));
+                                        var result = $('#responses-perfilGet-401-schema-401');
+                                        result.empty();
+                                        result.append(view.render());
+                                      });
+                                    </script>
+                                  </div>
+                                  <input id='responses-perfilGet-401-schema-data' type='hidden' value=''></input>
+                                </div>
                             </div>
 
                         </article>
