@@ -104,7 +104,7 @@
     
 
     
-    <h4 class="name" id="cancelarAmistad"><span class="type-signature">(async) </span>cancelarAmistad<span class="signature">(idUsuario, idDestino)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
+    <h4 class="name" id="atacarTerritorio"><span class="type-signature">(async) </span>atacarTerritorio<span class="signature">(partidaOID, usuarioID, territorioAtacante, territorioDefensor, numTropas)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
     
 
     
@@ -112,7 +112,7 @@
 
 
 <div class="description">
-    Esta función asíncrona cancela una amistad entre dos usuarios.
+    Ataca un territorio durante una partida.
 </div>
 
 
@@ -148,7 +148,7 @@
 
         <tr>
             
-                <td class="name"><code>idUsuario</code></td>
+                <td class="name"><code>partidaOID</code></td>
             
 
             <td class="type">
@@ -164,14 +164,14 @@
 
             
 
-            <td class="description last">El ID del usuario que inicia la cancelación de la amistad.</td>
+            <td class="description last">El ID de la partida.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>idDestino</code></td>
+                <td class="name"><code>usuarioID</code></td>
             
 
             <td class="type">
@@ -187,7 +187,76 @@
 
             
 
-            <td class="description last">El ID del usuario con el que se cancela la amistad.</td>
+            <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>territorioAtacante</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El nombre del territorio atacante.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>territorioDefensor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El nombre del territorio defensor.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>numTropas</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El número de tropas que atacan.</td>
         </tr>
 
     
@@ -228,7 +297,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line125">line 125</a>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line394">line 394</a>
     </li></ul></dd>
     
 
@@ -258,7 +327,7 @@
 <dl>
     <dt>
         <div class="param-desc">
-        Cuando ocurre un error al cancelar la amistad.
+        Si la partida no existe, está pausada, el usuario no está en la partida, no es su turno, no está en la fase de atacar, el territorio atacante no le pertenece, no tiene suficientes tropas para atacar, el número de tropas atacantes es inválido, el territorio defensor le pertenece o los territorios no son fronterizos.
         </div>
     </dt>
     <dd></dd>
@@ -286,7 +355,264 @@
 
         
 <div class="param-desc">
-    Devuelve una promesa que se resuelve con un booleano que indica si la amistad se canceló con éxito.
+    Retorna un objeto con los resultados del ataque.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="colocarTropas"><span class="type-signature">(async) </span>colocarTropas<span class="signature">(partidaOID, usuarioID, nombreTerritorio, tropas)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Coloca tropas en un territorio durante una partida.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>partidaOID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usuarioID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>nombreTerritorio</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El nombre del territorio.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>tropas</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El número de tropas a colocar.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line329">line 329</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si la partida no existe, está pausada, el usuario no está en la partida, no es su turno, no está en la fase de colocación de tropas, el territorio no le pertenece o no tiene suficientes refuerzos por colocar.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Retorna true si las tropas se colocan correctamente, false en caso contrario.
 </div>
 
 
@@ -315,7 +641,7 @@
     
 
     
-    <h4 class="name" id="crearAmistad"><span class="type-signature">(async) </span>crearAmistad<span class="signature">(idUsuario, idDestino)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
+    <h4 class="name" id="crearPartida"><span class="type-signature">(async) </span>crearPartida<span class="signature">(user, nombre, password, numJugadores)</span><span class="type-signature"> &rarr; {Promise.&lt;string>}</span></h4>
     
 
     
@@ -323,7 +649,7 @@
 
 
 <div class="description">
-    Esta función asíncrona crea una amistad entre dos usuarios.
+    Crea una nueva partida.
 </div>
 
 
@@ -359,7 +685,7 @@
 
         <tr>
             
-                <td class="name"><code>idUsuario</code></td>
+                <td class="name"><code>user</code></td>
             
 
             <td class="type">
@@ -375,14 +701,14 @@
 
             
 
-            <td class="description last">El ID del usuario que inicia la solicitud de amistad.</td>
+            <td class="description last">El ID del usuario que crea la partida.</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>idDestino</code></td>
+                <td class="name"><code>nombre</code></td>
             
 
             <td class="type">
@@ -398,7 +724,53 @@
 
             
 
-            <td class="description last">El ID del usuario al que se le envía la solicitud de amistad.</td>
+            <td class="description last">El nombre de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>password</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">La contraseña de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>numJugadores</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El número máximo de jugadores en la partida.</td>
         </tr>
 
     
@@ -439,7 +811,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line52">line 52</a>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line21">line 21</a>
     </li></ul></dd>
     
 
@@ -469,7 +841,7 @@
 <dl>
     <dt>
         <div class="param-desc">
-        Cuando ocurre un error al crear la amistad.
+        Si ya existe una partida con el mismo nombre y contraseña, o si el número de jugadores no es válido.
         </div>
     </dt>
     <dd></dd>
@@ -497,7 +869,756 @@
 
         
 <div class="param-desc">
-    Devuelve una promesa que se resuelve con un booleano que indica si la solicitud de amistad se creó con éxito.
+    El ID de la partida creada.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;string></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getHistorico"><span class="type-signature">(async) </span>getHistorico<span class="signature">(user)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Obtiene las partidas terminadas por usuario.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line266">line 266</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si ocurre un error al obtener las partidas terminadas.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    La lista de partidas terminadas por el usuario.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getPartida"><span class="type-signature">(async) </span>getPartida<span class="signature">(partidaOID, UsuarioID)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Pasa el estado de la partida al front.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>partidaOID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>UsuarioID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line781">line 781</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si la partida no existe o el usuario no está en la partida.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    La partida con la información del estado.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Object></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="getPartidasDisponibles"><span class="type-signature">(async) </span>getPartidasDisponibles<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Obtiene las partidas públicas que no han empezado ni terminado (es decir, están en espera de jugadores).
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line249">line 249</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si ocurre un error al obtener las partidas disponibles.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    La lista de partidas disponibles.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;Array></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="iniciarPartida"><span class="type-signature">(async) </span>iniciarPartida<span class="signature">(partidaOID, usuarioID)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Inicia una partida dado el object id de una partida (id único de la bdd).
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>partidaOID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usuarioID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line287">line 287</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si la partida no existe o el número de jugadores es insuficiente.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Retorna true si la partida se inicia correctamente, false en caso contrario.
 </div>
 
 
@@ -526,7 +1647,7 @@
     
 
     
-    <h4 class="name" id="crearUsuario"><span class="type-signature">(async) </span>crearUsuario<span class="signature">(idUsuario, password, correo)</span><span class="type-signature"> &rarr; {Promise.&lt;void>}</span></h4>
+    <h4 class="name" id="invite"><span class="type-signature">(async) </span>invite<span class="signature">(user, idPartida)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
     
 
     
@@ -534,7 +1655,7 @@
 
 
 <div class="description">
-    Esta función asíncrona crea un nuevo usuario.
+    Invita a un usuario a una partida.
 </div>
 
 
@@ -570,7 +1691,7 @@
 
         <tr>
             
-                <td class="name"><code>idUsuario</code></td>
+                <td class="name"><code>user</code></td>
             
 
             <td class="type">
@@ -586,7 +1707,241 @@
 
             
 
-            <td class="description last">El ID del usuario.</td>
+            <td class="description last">El ID del usuario a invitar.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>idPartida</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida a la que invitar al usuario.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line55">line 55</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si la partida no existe, el usuario ya está en la partida, ya está invitado, o ocurre otro error.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Devuelve true si la invitación fue exitosa.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;boolean></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="join"><span class="type-signature">(async) </span>join<span class="signature">(user, idPartida, password)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Une a un usuario a una partida.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario a unir.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>idPartida</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida a la que unir al usuario.</td>
         </tr>
 
     
@@ -609,30 +1964,7 @@
 
             
 
-            <td class="description last">La contraseña del usuario.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>correo</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El correo electrónico del usuario.</td>
+            <td class="description last">La contraseña de la partida.</td>
         </tr>
 
     
@@ -673,7 +2005,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line15">line 15</a>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line96">line 96</a>
     </li></ul></dd>
     
 
@@ -703,7 +2035,7 @@
 <dl>
     <dt>
         <div class="param-desc">
-        Cuando el nombre de usuario o el correo electrónico ya están en uso.
+        Si la partida no existe, ya ha comenzado, está llena, el usuario ya está en la partida, la contraseña es incorrecta, o ocurre otro error.
         </div>
     </dt>
     <dd></dd>
@@ -731,7 +2063,7 @@
 
         
 <div class="param-desc">
-    Devuelve una promesa que se resuelve cuando el nuevo usuario se guarda.
+    Devuelve true si la unión fue exitosa.
 </div>
 
 
@@ -742,7 +2074,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Promise.&lt;void></span>
+<span class="param-type">Promise.&lt;boolean></span>
 
 
     </dd>
@@ -760,7 +2092,7 @@
     
 
     
-    <h4 class="name" id="getFriends"><span class="type-signature">(async) </span>getFriends<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
+    <h4 class="name" id="pausarPartida"><span class="type-signature">(async) </span>pausarPartida<span class="signature">(user, idPartida)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
     
 
     
@@ -768,7 +2100,7 @@
 
 
 <div class="description">
-    Esta función asíncrona obtiene los amigos de un usuario.
+    Pausa o reanuda una partida.
 </div>
 
 
@@ -804,7 +2136,710 @@
 
         <tr>
             
-                <td class="name"><code>idUsuario</code></td>
+                <td class="name"><code>user</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>idPartida</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line815">line 815</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si la partida no existe, el usuario no está en la partida, o ocurre otro error.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Devuelve true si la operación fue exitosa.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;boolean></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="realizarManiobra"><span class="type-signature">(async) </span>realizarManiobra<span class="signature">(partidaOID, usuarioID, territorioOrigen, territorioDestino, numTropas)</span><span class="type-signature"> &rarr; {Promise.&lt;boolean>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Realiza una maniobra durante una partida.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>partidaOID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usuarioID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>territorioOrigen</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El nombre del territorio origen.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>territorioDestino</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El nombre del territorio destino.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>numTropas</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El número de tropas a mover.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line540">line 540</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si la partida no existe, está pausada, el usuario no está en la partida, no es su turno, no está en la fase de maniobrar, los territorios no le pertenecen, no hay ruta posible entre los territorios o el número de tropas es insuficiente.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+<h5>Returns:</h5>
+
+        
+<div class="param-desc">
+    Retorna true si la maniobra se realiza correctamente, false en caso contrario.
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">Promise.&lt;boolean></span>
+
+
+    </dd>
+</dl>
+
+    
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="salirPartida"><span class="type-signature">(async) </span>salirPartida<span class="signature">(usuarioID, partidaOID)</span><span class="type-signature"></span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Permite a un usuario salir de una partida.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>usuarioID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID del usuario que sale de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>partidaOID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida de la que sale el usuario.</td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line167">line 167</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h5>Throws:</h5>
+
+        
+
+<dl>
+    <dt>
+        <div class="param-desc">
+        Si la partida no existe, el usuario no está en la partida, o ocurre otro error.
+        </div>
+    </dt>
+    <dd></dd>
+    <dt>
+        <dl>
+            <dt>
+                Type
+            </dt>
+            <dd>
+                
+<span class="param-type">Error</span>
+
+
+            </dd>
+        </dl>
+    </dt>
+    <dd></dd>
+</dl>
+
+
+    
+
+
+
+
+
+
+
+        
+            
+
+    
+
+    
+    <h4 class="name" id="siguienteFase"><span class="type-signature">(async) </span>siguienteFase<span class="signature">(partidaOID, usuarioID)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
+    
+
+    
+
+
+
+<div class="description">
+    Cambia de fase o pasa de turno durante una partida.
+</div>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>partidaOID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usuarioID</code></td>
             
 
             <td class="type">
@@ -861,7 +2896,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line355">line 355</a>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line610">line 610</a>
     </li></ul></dd>
     
 
@@ -891,7 +2926,7 @@
 <dl>
     <dt>
         <div class="param-desc">
-        Cuando ocurre un error al obtener los amigos del usuario.
+        Si la partida no existe, está pausada, el usuario no está en la partida, no es su turno, no se han terminado de colocar las tropas o ocurre otro error.
         </div>
     </dt>
     <dd></dd>
@@ -919,571 +2954,7 @@
 
         
 <div class="param-desc">
-    Devuelve una promesa que se resuelve con un array que contiene los amigos del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Array></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getInvitaciones"><span class="type-signature">(async) </span>getInvitaciones<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene las invitaciones de un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line393">line 393</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener las invitaciones del usuario.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con un array que contiene las invitaciones del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Array></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getMoney"><span class="type-signature">(async) </span>getMoney<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;number>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene los puntos (dinero) de un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line337">line 337</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener los puntos del usuario.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con los puntos del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;number></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getPerfil"><span class="type-signature">(async) </span>getPerfil<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene el perfil de un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line462">line 462</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener el perfil del usuario.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con el perfil del usuario.
+    Retorna un objeto con la nueva fase, el nuevo turno, los refuerzos y si se puede robar una carta.
 </div>
 
 
@@ -1512,7 +2983,7 @@
     
 
     
-    <h4 class="name" id="getSkinsEnPropiedadByUsuario"><span class="type-signature">(async) </span>getSkinsEnPropiedadByUsuario<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
+    <h4 class="name" id="utilizarCartas"><span class="type-signature">(async) </span>utilizarCartas<span class="signature">(partidaOID, usuarioID, carta1)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
     
 
     
@@ -1520,7 +2991,7 @@
 
 
 <div class="description">
-    Esta función asíncrona obtiene las skins en propiedad de un usuario.
+    Utiliza una carta durante una partida.
 </div>
 
 
@@ -1556,7 +3027,30 @@
 
         <tr>
             
-                <td class="name"><code>idUsuario</code></td>
+                <td class="name"><code>partidaOID</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El ID de la partida.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>usuarioID</code></td>
             
 
             <td class="type">
@@ -1573,6 +3067,29 @@
             
 
             <td class="description last">El ID del usuario.</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>carta1</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">string</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">El nombre del territorio correspondiente a la carta.</td>
         </tr>
 
     
@@ -1613,7 +3130,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line247">line 247</a>
+        <a href="partidaController.js.html">partidaController.js</a>, <a href="partidaController.js.html#line689">line 689</a>
     </li></ul></dd>
     
 
@@ -1643,7 +3160,7 @@
 <dl>
     <dt>
         <div class="param-desc">
-        Cuando ocurre un error al obtener las skins en propiedad o si el usuario no se encuentra.
+        Si la partida no existe, está pausada, el usuario no está en la partida, no es su turno, las cartas son null o undefined, los territorios de las cartas no pertenecen al jugador, no se pueden utilizar cartas en la fase actual o el jugador no dispone de las cartas que quiere utilizar.
         </div>
     </dt>
     <dd></dd>
@@ -1671,195 +3188,7 @@
 
         
 <div class="param-desc">
-    Devuelve una promesa que se resuelve con un array que contiene las skins en propiedad del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Array></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getSkinsEquipadasByUsuario"><span class="type-signature">(async) </span>getSkinsEquipadasByUsuario<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene las skins equipadas por un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line220">line 220</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener las skins equipadas o si el usuario no se encuentra.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con un objeto que contiene las skins equipadas por el usuario.
+    Retorna un objeto con el número de tropas que se añaden al jugador.
 </div>
 
 
@@ -1877,1291 +3206,6 @@
 </dl>
 
     
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getSolicitudes"><span class="type-signature">(async) </span>getSolicitudes<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene las solicitudes de un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line374">line 374</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener las solicitudes del usuario.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con un array que contiene las solicitudes del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Array></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="getUsuariosByRanking"><span class="type-signature">(async) </span>getUsuariosByRanking<span class="signature">()</span><span class="type-signature"> &rarr; {Promise.&lt;Array>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene los usuarios ordenados por su ranking.
-</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line201">line 201</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener los usuarios.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con un array de usuarios ordenados por su ranking.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Array></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="login"><span class="type-signature">(async) </span>login<span class="signature">(idUsuario, password, correo)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona inicia sesión con un usuario existente.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>password</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">La contraseña del usuario.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>correo</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El correo electrónico del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line36">line 36</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con un objeto que contiene la validez del inicio de sesión y el ID del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Object></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="obtenerAvatar"><span class="type-signature">(async) </span>obtenerAvatar<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene el avatar de un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line420">line 420</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener el avatar del usuario.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con el avatar del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Object></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="obtenerSetFichas"><span class="type-signature">(async) </span>obtenerSetFichas<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene el set de fichas de un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line481">line 481</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener el set de fichas del usuario.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con el set de fichas del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Object></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="obtenerTerreno"><span class="type-signature">(async) </span>obtenerTerreno<span class="signature">(idUsuario)</span><span class="type-signature"> &rarr; {Promise.&lt;Object>}</span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona obtiene el terreno de un usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line441">line 441</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando ocurre un error al obtener el terreno del usuario.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
-<h5>Returns:</h5>
-
-        
-<div class="param-desc">
-    Devuelve una promesa que se resuelve con el terreno del usuario.
-</div>
-
-
-
-<dl>
-    <dt>
-        Type
-    </dt>
-    <dd>
-        
-<span class="param-type">Promise.&lt;Object></span>
-
-
-    </dd>
-</dl>
-
-    
-
-
-
-
-
-        
-            
-
-    
-
-    
-    <h4 class="name" id="setSkinEquipada"><span class="type-signature">(async) </span>setSkinEquipada<span class="signature">(idUsuario, idSkin)</span><span class="type-signature"></span></h4>
-    
-
-    
-
-
-
-<div class="description">
-    Esta función asíncrona modifica la skin equipada del usuario.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>idUsuario</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID del usuario.</td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>idSkin</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">string</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">El ID de la skin.</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="usuarioController.js.html">usuarioController.js</a>, <a href="usuarioController.js.html#line284">line 284</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-<h5>Throws:</h5>
-
-        
-
-<dl>
-    <dt>
-        <div class="param-desc">
-        Cuando el usuario no se encuentra, no tiene la skin especificada, la skin no se encuentra en la base de datos, o el tipo de skin no es reconocido.
-        </div>
-    </dt>
-    <dd></dd>
-    <dt>
-        <dl>
-            <dt>
-                Type
-            </dt>
-            <dd>
-                
-<span class="param-type">Error</span>
-
-
-            </dd>
-        </dl>
-    </dt>
-    <dd></dd>
-</dl>
-
-
-    
-
-
 
 
 
@@ -3183,13 +3227,13 @@
 </div>
 
 <nav>
-    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#cancelarAmistad">cancelarAmistad</a></li><li><a href="global.html#crearAmistad">crearAmistad</a></li><li><a href="global.html#crearUsuario">crearUsuario</a></li><li><a href="global.html#getFriends">getFriends</a></li><li><a href="global.html#getInvitaciones">getInvitaciones</a></li><li><a href="global.html#getMoney">getMoney</a></li><li><a href="global.html#getPerfil">getPerfil</a></li><li><a href="global.html#getSkinsEnPropiedadByUsuario">getSkinsEnPropiedadByUsuario</a></li><li><a href="global.html#getSkinsEquipadasByUsuario">getSkinsEquipadasByUsuario</a></li><li><a href="global.html#getSolicitudes">getSolicitudes</a></li><li><a href="global.html#getUsuariosByRanking">getUsuariosByRanking</a></li><li><a href="global.html#login">login</a></li><li><a href="global.html#obtenerAvatar">obtenerAvatar</a></li><li><a href="global.html#obtenerSetFichas">obtenerSetFichas</a></li><li><a href="global.html#obtenerTerreno">obtenerTerreno</a></li><li><a href="global.html#setSkinEquipada">setSkinEquipada</a></li></ul>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#atacarTerritorio">atacarTerritorio</a></li><li><a href="global.html#colocarTropas">colocarTropas</a></li><li><a href="global.html#crearPartida">crearPartida</a></li><li><a href="global.html#getHistorico">getHistorico</a></li><li><a href="global.html#getPartida">getPartida</a></li><li><a href="global.html#getPartidasDisponibles">getPartidasDisponibles</a></li><li><a href="global.html#iniciarPartida">iniciarPartida</a></li><li><a href="global.html#invite">invite</a></li><li><a href="global.html#join">join</a></li><li><a href="global.html#pausarPartida">pausarPartida</a></li><li><a href="global.html#realizarManiobra">realizarManiobra</a></li><li><a href="global.html#salirPartida">salirPartida</a></li><li><a href="global.html#siguienteFase">siguienteFase</a></li><li><a href="global.html#utilizarCartas">utilizarCartas</a></li></ul>
 </nav>
 
 <br class="clear">
 
 <footer>
-    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Fri May 10 2024 20:38:23 GMT+0200 (hora de verano de Europa central)
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 4.0.3</a> on Sun May 12 2024 20:27:17 GMT+0200 (hora de verano de Europa central)
 </footer>
 
 <script> prettyPrint(); </script>
