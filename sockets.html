@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <title>Socket API</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1>API Sockets</h1>
+            <p>Las API Sockets se utilizan para crear aplicaciones en tiempo real. Se utilizan para crear una conexión entre el cliente y el servidor. El servidor puede enviar datos al cliente y el cliente puede enviar datos al servidor. Esto es útil para aplicaciones que requieren actualizaciones en tiempo real, como aplicaciones de chat, juegos en línea y transmisión en vivo.</p>
+            <p>Las API Sockets utilizan el protocolo WebSocket, que es un protocolo de comunicación que proporciona canales de comunicación full-duplex sobre una única conexión TCP. Esto permite una comunicación de baja latencia entre el cliente y el servidor.</p>
+            <p>Las API Sockets se utilizan comúnmente en conjunto con API Web y API Controllers para crear una aplicación web completa. El cliente puede usar API Web para hacer solicitudes HTTP al servidor, y el servidor puede usar API Controllers para procesar esas solicitudes y enviar datos de vuelta al cliente usando API Sockets.</p>
+            <p>Las API Sockets se implementan utilizando la biblioteca Socket.IO, que es una biblioteca de JavaScript que proporciona una API sencilla para crear aplicaciones web en tiempo real. Socket.IO maneja los detalles de bajo nivel del protocolo WebSocket y proporciona una API de alto nivel para enviar y recibir mensajes entre el cliente y el servidor.</p>
+            <p>Las API Sockets son una herramienta poderosa para crear aplicaciones web en tiempo real. Permiten una comunicación rápida y eficiente entre el cliente y el servidor, y se pueden usar para crear una amplia gama de aplicaciones, desde aplicaciones de chat hasta juegos en línea hasta servicios de transmisión en vivo.</p>
+            <p>Emit: Llamada a la función socket.emit de socket.io</p>
+            <p>On: Llamada a la función socket.on de socket.io</p>
+            <h2>Sesión de usuario</h2>
+            <h3>Emit</h3>
+            
+            <h4>Evento 'login'</h4>
+            <p>El evento 'login' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('login', userId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>userId:</strong> El ID del usuario que intenta iniciar sesión.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'login' desde el cliente al servidor. El evento 'login' lleva un objeto de datos que tiene una propiedad 'userId' con el valor del ID del usuario que está intentando iniciar sesión.</p>
+
+            <h4>Evento 'logout'</h4>
+            <p>El evento 'logout' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('logout', userId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>userId:</strong> El ID del usuario que intenta cerrar sesión.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'logout' desde el cliente al servidor. El evento 'logout' lleva un objeto de datos que tiene una propiedad 'userId' con el valor del ID del usuario que está intentando cerrar sesión.</p>
+
+            <h3>On</h3>
+            <p>No hay sockets que requieran escuchar eventos para esta sección.</p>
+
+            <h2>Chats</h2>
+            <h3>Emit</h3>
+            <h4>Evento 'joinChat'</h4>
+            <p>El evento 'joinChat' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('joinChat', chatId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>chatId:</strong> El ID del chat al que el usuario intenta unirse.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'joinChat' desde el cliente al servidor. El evento 'joinChat' lleva un objeto de datos que tiene una propiedad 'chatId' con el valor del ID del chat al que el usuario está intentando unirse.</p>
+            <h4>Evento 'sendChatMessage'</h4>
+            <p>El evento 'sendChatMessage' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('sendChatMessage', {chatId, message, user, timestamp})
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>chatId:</strong> El ID del chat en el que se envía el mensaje.</li>
+                <li><strong>message:</strong> El contenido del mensaje que se envía.</li>
+                <li><strong>user:</strong> El usuario que envía el mensaje.</li>
+                <li><strong>timestamp:</strong> La marca de tiempo en la que se envía el mensaje.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'sendChatMessage' desde el cliente al servidor. El evento 'sendChatMessage' lleva un objeto de datos que incluye las propiedades 'chatId', 'message', 'user' y 'timestamp', que representan respectivamente el ID del chat, el contenido del mensaje, el usuario que envía el mensaje y la marca de tiempo del mensaje.</p>
+            <h4>Evento 'exitChat'</h4>
+            <p>El evento 'exitChat' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('exitChat', chatId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>chatId:</strong> El ID del chat del que el usuario intenta salir.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'exitChat' desde el cliente al servidor. El evento 'exitChat' lleva un objeto de datos que tiene una propiedad 'chatId' con el valor del ID del chat del que el usuario está intentando salir.</p>
+
+            <h3>On</h3>
+            <h4>Evento 'chatMessage'</h4>
+            <p>El evento 'chatMessage' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.on('chatMessage', (body) => {
+                    // Lógica para manejar el mensaje del chat
+                });
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>body:</strong> Un objeto que contiene los detalles del mensaje del chat.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'on' de Socket.IO para escuchar un evento llamado 'chatMessage' enviado desde el servidor al cliente. El evento 'chatMessage' lleva un objeto de datos llamado 'body' que incluye las siguientes propiedades:</p>
+            <ul>
+                <li><strong>chatId:</strong> El ID del chat en el que se envía el mensaje.</li>
+                <li><strong>message:</strong> El contenido del mensaje que se ha enviado.</li>
+                <li><strong>user:</strong> El usuario que ha enviado el mensaje.</li>
+                <li><strong>timestamp:</strong> La marca de tiempo en la que se ha enviado el mensaje.</li>
+            </ul>
+            <p>En el código de ejemplo, el evento 'chatMessage' se maneja mediante una función que recibe el objeto 'body'. Dentro de esta función, se puede definir la lógica necesaria para procesar y mostrar el mensaje del chat en el cliente.</p>
+            
+            <h2>Partidas</h2>
+            <h3>Emit</h3>
+            <h4>Evento 'joinGame'</h4>
+            <p>El evento 'joinGame' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('joinGame', {gameId, userId})
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego al que el usuario intenta unirse.</li>
+                <li><strong>userId:</strong> El ID del usuario que intenta unirse al juego.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'joinGame' desde el cliente al servidor. El evento 'joinGame' lleva un objeto de datos que tiene las propiedades 'gameId' y 'userId', que representan respectivamente el ID del juego y el ID del usuario que está intentando unirse al juego.</p>
+
+            <h4>Evento 'inviteGame'</h4>
+            <p>El evento 'inviteGame' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('inviteGame', {gameId, user_dest, user_from})
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego al que el usuario intenta invitar a otro usuario.</li>
+                <li><strong>user_dest:</strong> El ID del usuario al que se le está enviando la invitación.</li>
+                <li><strong>user_from:</strong> El ID del usuario que está enviando la invitación.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'inviteGame' desde el cliente al servidor. El evento 'inviteGame' lleva un objeto de datos que tiene las propiedades 'gameId', 'user_dest' y 'user_from', que representan respectivamente el ID del juego, el ID del usuario al que se le está enviando la invitación y el ID del usuario que está enviando la invitación.</p>
+            <h4>Evento 'gameStarted'</h4>
+            <p>El evento 'gameStarted' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('gameStarted', gameId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego que ha comenzado.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'gameStarted' desde el cliente al servidor. El evento 'gameStarted' lleva el ID del juego que ha comenzado.</p>
+
+            <h4>Evento 'actualizarEstado'</h4>
+            <p>El evento 'actualizarEstado' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('actualizarEstado', gameId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego cuyo estado se está actualizando.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'actualizarEstado' desde el cliente al servidor. El evento 'actualizarEstado' lleva el ID del juego cuyo estado se está actualizando.</p>
+
+            <h4>Evento 'pausoPartida'</h4>
+            <p>El evento 'pausoPartida' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('pausoPartida', gameId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego que se ha pausado.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'pausoPartida' desde el cliente al servidor. El evento 'pausoPartida' lleva el ID del juego que se ha pausado.</p>
+            <h4>Evento 'ataco'</h4>
+            <p>El evento 'ataco' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('ataco', {
+                    userOrigen,
+                    userDestino,
+                    dadosAtacante,
+                    dadosDefensor,
+                    tropasPerdidasAtacante,
+                    tropasPerdidasDefensor,
+                    conquistado,
+                    territorioOrigen,
+                    territorioDestino,
+                    eloAtacante,
+                    eloDefensor,
+                    dineroAtacante,
+                    dineroDefensor,
+                    clientIp
+                });
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>userOrigen:</strong> El usuario que está atacando.</li>
+                <li><strong>userDestino:</strong> El usuario que está siendo atacado.</li>
+                <li><strong>dadosAtacante:</strong> Los dados utilizados por el atacante.</li>
+                <li><strong>dadosDefensor:</strong> Los dados utilizados por el defensor.</li>
+                <li><strong>tropasPerdidasAtacante:</strong> El número de tropas perdidas por el atacante.</li>
+                <li><strong>tropasPerdidasDefensor:</strong> El número de tropas perdidas por el defensor.</li>
+                <li><strong>conquistado:</strong> Indica si el territorio ha sido conquistado.</li>
+                <li><strong>territorioOrigen:</strong> El territorio desde el cual se origina el ataque.</li>
+                <li><strong>territorioDestino:</strong> El territorio que está siendo atacado.</li>
+                <li><strong>eloAtacante:</strong> La puntuación ELO del atacante.</li>
+                <li><strong>eloDefensor:</strong> La puntuación ELO del defensor.</li>
+                <li><strong>dineroAtacante:</strong> La cantidad de dinero del atacante.</li>
+                <li><strong>dineroDefensor:</strong> La cantidad de dinero del defensor.</li>
+                <li><strong>clientIp:</strong> La dirección IP del cliente.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'ataco' desde el cliente al servidor. El evento 'ataco' lleva un objeto de datos con varias propiedades que describen los detalles del ataque en un juego, incluyendo los usuarios involucrados, los resultados de los dados, las tropas perdidas, y los territorios afectados.</p>
+            <h4>Evento 'atacoGrupal'</h4>
+            <p>El evento 'atacoGrupal' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('atacoGrupal', {
+                    gameId,
+                    userOrigen,
+                    userDestino,
+                    dadosAtacante,
+                    dadosDefensor,
+                    tropasPerdidasAtacante,
+                    tropasPerdidasDefensor,
+                    conquistado,
+                    territorioOrigen,
+                    territorioDestino,
+                    eloAtacante,
+                    eloDefensor,
+                    dineroAtacante,
+                    dineroDefensor,
+                    clientIp
+                });
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego.</li>
+                <li><strong>userOrigen:</strong> El usuario que está atacando.</li>
+                <li><strong>userDestino:</strong> El usuario que está siendo atacado.</li>
+                <li><strong>dadosAtacante:</strong> Los dados utilizados por el atacante.</li>
+                <li><strong>dadosDefensor:</strong> Los dados utilizados por el defensor.</li>
+                <li><strong>tropasPerdidasAtacante:</strong> El número de tropas perdidas por el atacante.</li>
+                <li><strong>tropasPerdidasDefensor:</strong> El número de tropas perdidas por el defensor.</li>
+                <li><strong>conquistado:</strong> Indica si el territorio ha sido conquistado.</li>
+                <li><strong>territorioOrigen:</strong> El territorio desde el cual se origina el ataque.</li>
+                <li><strong>territorioDestino:</strong> El territorio que está siendo atacado.</li>
+                <li><strong>eloAtacante:</strong> La puntuación ELO del atacante.</li>
+                <li><strong>eloDefensor:</strong> La puntuación ELO del defensor.</li>
+                <li><strong>dineroAtacante:</strong> La cantidad de dinero del atacante.</li>
+                <li><strong>dineroDefensor:</strong> La cantidad de dinero del defensor.</li>
+                <li><strong>clientIp:</strong> La dirección IP del cliente.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'atacoGrupal' desde el cliente al servidor. El evento 'atacoGrupal' lleva un objeto de datos que describe los detalles del ataque en un juego grupal, incluyendo el ID del juego, los usuarios involucrados, los resultados de los dados, las tropas perdidas, y los territorios afectados.</p>
+            <h4>Evento 'disconnectGame'</h4>
+            <p>El evento 'disconnectGame' se emite desde el cliente al servidor utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.emit('disconnectGame', {
+                    gameId,
+                    user,
+                    clientIp
+                });
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego.</li>
+                <li><strong>user:</strong> El usuario que se está desconectando del juego.</li>
+                <li><strong>clientIp:</strong> La dirección IP del cliente.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'disconnectGame' desde el cliente al servidor. El evento 'disconnectGame' lleva un objeto de datos que incluye el ID del juego, el usuario que se está desconectando y la dirección IP del cliente.</p>
+
+            <h3>On</h3>
+            <h4>Evento 'userJoined'</h4>
+            <p>El evento 'userJoined' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(gameId).emit('userJoined', user)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego al que se ha unido el usuario.</li>
+                <li><strong>user:</strong> El usuario que se ha unido al juego.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'userJoined' desde el servidor al cliente. El evento 'userJoined' lleva el ID del juego al que se ha unido el usuario y la información del usuario.</p>
+            
+            <h4>Evento 'gameInvitation'</h4>
+            <p>El evento 'gameInvitation' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(user_dest).emit('gameInvitation', gameId, user_from)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>user_dest:</strong> El usuario al que se le está enviando la invitación.</li>
+                <li><strong>gameId:</strong> El ID del juego al que se está invitando al usuario.</li>
+                <li><strong>user_from:</strong> El usuario que está enviando la invitación.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'gameInvitation' desde el servidor al cliente. El evento 'gameInvitation' lleva el ID del juego al que se está invitando al usuario y la información del usuario que está enviando la invitación.</p>
+            
+            <h4>Evento 'gameStarted'</h4>
+            <p>El evento 'gameStarted' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(gameId).emit('gameStarted', gameId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego que ha comenzado.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'gameStarted' desde el servidor al cliente. El evento 'gameStarted' lleva el ID del juego que ha comenzado.</p>
+            
+            <h4>Evento 'cambioEstado'</h4>
+            <p>El evento 'cambioEstado' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(gameId).emit('cambioEstado', gameId)
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID del juego cuyo estado ha cambiado.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'cambioEstado' desde el servidor al cliente. El evento 'cambioEstado' lleva el ID del juego cuyo estado ha cambiado.</p>
+            <h4>Evento 'partidaPausada'</h4>
+            <p>El evento 'partidaPausada' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(gameId).emit('partidaPausada', gameId);
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>gameId:</strong> El ID de la partida que ha sido pausada.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'partidaPausada' desde el servidor a los clientes en una sala específica identificada por 'gameId'. El evento 'partidaPausada' lleva el ID de la partida que ha sido pausada.</p>
+            <h4>Evento 'ataqueRecibido'</h4>
+            <p>El evento 'ataqueRecibido' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(userDestino).emit('ataqueRecibido', {
+                    userOrigen,
+                    userDestino,
+                    dadosAtacante,
+                    dadosDefensor,
+                    tropasPerdidasAtacante,
+                    tropasPerdidasDefensor,
+                    conquistado,
+                    territorioOrigen,
+                    territorioDestino,
+                    eloAtacante,
+                    eloDefensor,
+                    dineroAtacante,
+                    dineroDefensor
+                });
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>userOrigen:</strong> El usuario que está atacando.</li>
+                <li><strong>userDestino:</strong> El usuario que está siendo atacado.</li>
+                <li><strong>dadosAtacante:</strong> Los dados utilizados por el atacante.</li>
+                <li><strong>dadosDefensor:</strong> Los dados utilizados por el defensor.</li>
+                <li><strong>tropasPerdidasAtacante:</strong> El número de tropas perdidas por el atacante.</li>
+                <li><strong>tropasPerdidasDefensor:</strong> El número de tropas perdidas por el defensor.</li>
+                <li><strong>conquistado:</strong> Indica si el territorio ha sido conquistado.</li>
+                <li><strong>territorioOrigen:</strong> El territorio desde el cual se origina el ataque.</li>
+                <li><strong>territorioDestino:</strong> El territorio que está siendo atacado.</li>
+                <li><strong>eloAtacante:</strong> La puntuación ELO del atacante.</li>
+                <li><strong>eloDefensor:</strong> La puntuación ELO del defensor.</li>
+                <li><strong>dineroAtacante:</strong> La cantidad de dinero del atacante.</li>
+                <li><strong>dineroDefensor:</strong> La cantidad de dinero del defensor.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'ataqueRecibido' desde el servidor al cliente específico identificado por 'userDestino'. El evento 'ataqueRecibido' lleva un objeto de datos que describe los detalles del ataque, incluyendo los usuarios involucrados, los resultados de los dados, las tropas perdidas y los territorios afectados.</p>
+            <h4>Evento 'ataqueRecibidoGrupal'</h4>
+            <p>El evento 'ataqueRecibidoGrupal' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(gameId).emit('ataqueRecibidoGrupal', {
+                    userOrigen,
+                    userDestino,
+                    dadosAtacante,
+                    dadosDefensor,
+                    tropasPerdidasAtacante,
+                    tropasPerdidasDefensor,
+                    conquistado,
+                    territorioOrigen,
+                    territorioDestino,
+                    eloAtacante,
+                    eloDefensor,
+                    dineroAtacante,
+                    dineroDefensor
+                });
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>userOrigen:</strong> El usuario que está atacando.</li>
+                <li><strong>userDestino:</strong> El usuario que está siendo atacado.</li>
+                <li><strong>dadosAtacante:</strong> Los dados utilizados por el atacante.</li>
+                <li><strong>dadosDefensor:</strong> Los dados utilizados por el defensor.</li>
+                <li><strong>tropasPerdidasAtacante:</strong> El número de tropas perdidas por el atacante.</li>
+                <li><strong>tropasPerdidasDefensor:</strong> El número de tropas perdidas por el defensor.</li>
+                <li><strong>conquistado:</strong> Indica si el territorio ha sido conquistado.</li>
+                <li><strong>territorioOrigen:</strong> El territorio desde el cual se origina el ataque.</li>
+                <li><strong>territorioDestino:</strong> El territorio que está siendo atacado.</li>
+                <li><strong>eloAtacante:</strong> La puntuación ELO del atacante.</li>
+                <li><strong>eloDefensor:</strong> La puntuación ELO del defensor.</li>
+                <li><strong>dineroAtacante:</strong> La cantidad de dinero del atacante.</li>
+                <li><strong>dineroDefensor:</strong> La cantidad de dinero del defensor.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'ataqueRecibidoGrupal' desde el servidor a los clientes en una sala específica identificada por 'gameId'. El evento 'ataqueRecibidoGrupal' lleva un objeto de datos que describe los detalles del ataque en un juego grupal, incluyendo los usuarios involucrados, los resultados de los dados, las tropas perdidas y los territorios afectados.</p>
+            <h4>Evento 'userDisconnected'</h4>
+            <p>El evento 'userDisconnected' se emite desde el servidor al cliente utilizando la función 'emit' de Socket.IO.</p>
+            <h5>Uso</h5>
+            <code>
+                socket.to(gameId).emit('userDisconnected', user);
+            </code>
+            <h5>Parámetros</h5>
+            <ul>
+                <li><strong>user:</strong> El usuario que se ha desconectado del juego.</li>
+            </ul>
+            <h6>Descripción</h6>
+            <p>Este código en JavaScript utiliza la función 'emit' de Socket.IO para enviar un evento llamado 'userDisconnected' desde el servidor a los clientes en una sala específica identificada por 'gameId'. El evento 'userDisconnected' lleva el usuario que se ha desconectado del juego.</p>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    </body>
+</html>
